@@ -61,7 +61,7 @@ class PostsController extends Controller
         ]);
         Session::flash('success', 'Post created succesfully.');
         
-        return redirect()->back();
+        return redirect()->route('posts');
 
     }
 
@@ -127,6 +127,16 @@ class PostsController extends Controller
         $post->forceDelete();
 
         Session::flash('success', 'Your post was deleted permanently.');
+
+        return redirect()->back();
+    }
+
+    public function restore($id)
+    {
+        $post = Post::withTrashed()->where('id', $id)->first();
+        $post->restore();
+
+        Session::flash('success', 'Post restored successfully');
 
         return redirect()->back();
     }

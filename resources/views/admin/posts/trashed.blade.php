@@ -27,7 +27,7 @@
                             <td>{{ $post->title }}</td>
                             <td>Edit</td>
                             <td>
-                                <a href="{{ route('post.delete', ['id' => $post->id]) }}" class="btn btn-xs btn-success">
+                                <a href="{{ route('post.restore', ['id' => $post->id]) }}" class="btn btn-xs btn-success">
                                     <span class="glyphicon glyphicon-refresh"></span>
                                 </a>
                             </td>
